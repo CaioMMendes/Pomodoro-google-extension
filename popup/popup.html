@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="../content.js"></script>
+    <title>Pomodoro Extension</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="color" id="colorInput" />
+      <div id="bolinha" class="bolinha"></div>
+      <button id="copyButton">Copiar Cor</button>
+      <form class="form">
+        <div class="pomodoroDiv">
+          <label for="pomodoro">Pomodoro</label>
+          <input type="number" name="pomodoro" id="pomodoro" class="pomodoro" />
+        </div>
+
+        <div class="pausaDiv">
+          <label for="pausa">Pausa</label>
+          <input type="number" name="pausa" id="pausa" class="pausa" />
+        </div>
+
+        <div class="serieDiv">
+          <label for="serie">Serie</label>
+          <input type="number" name="serie" id="serie" class="serie" />
+        </div>
+
+        <div class="soundDiv">
+          <label for="soundCheckbox">Sound</label>
+          <input type="checkbox" name="soundCheckbox" id="soundCheckbox" />
+        </div>
+      </form>
+      <div id="periodoRestante">00:00:00</div>
+      <div id="tempoRestante">00:00:00</div>
+      <button id="iniciar">Iniciar</button>
+      <span id="tempoTotal"></span>
+    </div>
+  </body>
+</html>
