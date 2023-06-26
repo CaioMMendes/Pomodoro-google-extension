@@ -12,22 +12,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-input {
-  width: 100px;
-  border: none;
-  outline: none;
-}
-input[type="color"] {
-  border: none;
-  width: 60px;
-  height: 30px;
-}
-input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-  border: none;
-}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -51,9 +36,6 @@ button {
 button:active {
   transform: translateY(-4px);
 }
-.bolinha {
-  width: 5px;
-  height: 5px;
-  border-radius: 100%;
-  background-color: transparent;
+.soundDiv {
+  display: flex;
 }

@@ -1,6 +1,5 @@
+import { background } from './service_worker.js'
 document.addEventListener('DOMContentLoaded', function () {
-
-
     let pomodoro = document.getElementById('pomodoro')
     let pausa = document.getElementById('pausa')
     let serie = document.getElementById('serie')
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let tempo;
     let minutos = Math.floor(+pomodoro.value);
     let segundos = Math.floor(+(`0.${(((pomodoro.value)).split('.')[1])}`) * 60 * 100) / 100
-    console.log(segundos)
     if (!segundos) {
         segundos = '00'
     } else if (segundos < 10) {
@@ -66,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('startDate', Date.now())
         console.log('first')
         // Cria um alarme para o tempo definido
-        chrome.alarms.create('timer', { delayInMinutes: +pomodoro.value });
+        background(+pomodoro.value, Boolean(soundCheckbox.checked))
+        // chrome.alarms.create('timer', { delayInMinutes: +pomodoro.value });
+
         setInterval(atualizarCronometro, 1000);
     })
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (minutos <= 0 && segundos <= 0) {
 
-            createNotification();
+            // createNotification();
         }
     }
 
@@ -102,17 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-
-
-
-
 })
 
-
+// chrome.alarms.create('timer', { delayInMinutes: 0.1 });
 
 // Listener para quando o alarme dispara
 chrome.alarms.onAlarm.addListener((alarm) => {
